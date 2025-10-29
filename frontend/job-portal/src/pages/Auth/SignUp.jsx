@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { motion } from "framer-motion";
+
 import {
   User,
   Mail,
@@ -13,6 +13,7 @@ import {
   AlertCircle,
   Loader,
 } from "lucide-react";
+import { Link } from "react-router-dom";
 import {
   validateAvatar,
   validateEmail,
@@ -428,12 +429,12 @@ const SignUp = () => {
           <div className="text-center">
             <p className="text-gray-600">
               Already have an account?{" "}
-              <a
-                href="/login"
+              <Link
+                to="/login"
                 className="text-blue-600 hover:text-blue-700 font-medium"
               >
                 Sign in here
-              </a>
+              </Link>
             </p>
           </div>
         </form>
