@@ -13,6 +13,7 @@ import { validateEmail } from "../../utils/helper";
 import { useAuth } from "../../context/AuthContext";
 import { API_PATHS } from "../../utils/apiPaths";
 import axiosInstance from "../../utils/axiosInstance";
+import { Link } from "react-router-dom";
 
 const Login = () => {
   const {login} = useAuth()
@@ -242,7 +243,7 @@ const Login = () => {
           <button
             type="submit"
             disabled={formState.loading}
-            className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 rounded-lg font-semibold hover:from-blue-700 hover:to-purple-700 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center space-x-2"
+            className="w-full bg-linear-to-r from-blue-600 to-purple-600 text-white py-3 rounded-lg font-semibold hover:from-blue-700 hover:to-purple-700 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center space-x-2"
           >
             {formState.loading ? (
               <>
@@ -258,12 +259,12 @@ const Login = () => {
           <div className="text-center">
             <p className="text-gray-600">
               Don't have an account?{" "}
-              <a
-                href="/signup"
+              <Link
+                to="/signup"
                 className="text-blue-600 hover:text-blue-700 font-medium"
               >
                 Create one here
-              </a>
+              </Link>
             </p>
           </div>
         </form>
