@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-
-
 import {
   Mail,
   Lock,
@@ -11,7 +9,6 @@ import {
   AlertCircle,
   CheckCircle,
 } from "lucide-react";
-import { Link } from "react-router-dom";
 import { validateEmail } from "../../utils/helper";
 import { useAuth } from "../../context/AuthContext";
 import { API_PATHS } from "../../utils/apiPaths";
@@ -105,6 +102,14 @@ const Login = () => {
               : "/find-jobs";
         }, 2000);
       }
+
+      // Redirect based on user role
+      setTimeout(() => {
+        const redirectPath = user.role === 'employer' 
+          ? '/employer-dashboard' 
+          : '/find-jobs';
+        window.location.href = redirectPath;
+      }, 1500);
 
     } catch (error) {
       setFormState(prev => ({ 
@@ -211,7 +216,7 @@ const Login = () => {
                 {formState.showPassword ? (
                   <EyeOff className="w-5 h-5" />
                 ) : (
-                  <Eye className="w-5 h-5" />
+                  <Eye clasw-5 h-5sName="" />
                 )}
               </button>
             </div>
@@ -253,12 +258,12 @@ const Login = () => {
           <div className="text-center">
             <p className="text-gray-600">
               Don't have an account?{" "}
-              <Link
-                to="/signup"
+              <a
+                href="/signup"
                 className="text-blue-600 hover:text-blue-700 font-medium"
               >
                 Create one here
-              </Link>
+              </a>
             </p>
           </div>
         </form>
